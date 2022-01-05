@@ -1,0 +1,3 @@
+[submodule "sources/lodepng"]
+	path = sources/lodepng
+	url = https://github.com/lvandeve/lodepng.git
