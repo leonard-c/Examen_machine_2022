@@ -64,14 +64,15 @@ On obtient :
 
 Image                | Nb de processus | Temps (DFT) | Accélération
 ---------------------|-----------------|-------------|--------------
-tiny_lena_gray.png   | 1        	   | 211.943     | 1
+small_lena_gray.png  | 1        	   | 211.943     | 1
 /                    | 2               | 52.0559     | 4.07
 /                    | 3               | 23.0782     | 9.18
 /                    | 4               | 13.0547     | 16.23
-small_lena_gray.png  | 1        	   | 0.821715    | 1
+tiny_lena_gray.png   | 1        	   | 0.821715    | 1
 /                    | 2               | 0.199926    | 4.11
 /                    | 3               | 0.084564    | 9.72
 /                    | 4               | 0.048458    | 16.96
 
 NB : Ici on ne considère que le temps pris par la fonction DFT car c'est le seul qui change.
 
+Problème dans les résultats : sûrement du à une mauvaise gestion du compressSpectralComposition(), pas le temps d'aller plus loin.
