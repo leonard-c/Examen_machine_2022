@@ -1,7 +1,7 @@
 #include Make_linux.inc
 #include Make_intel.inc
-include Make_msys2.inc
-#include Make_osx.inc
+#include Make_msys2.inc
+include Make_osx.inc
 
 CXXFLAGS = -std=c++11 -fPIC
 ifdef DEBUG
@@ -20,6 +20,12 @@ lodepng/lodepng.cpp:
 
 fourier_compression.exe:	fourier_compression.cpp lodepng/lodepng.cpp
 	$(CXX) $(CXXFLAGS) -o fourier_compression.exe fourier_compression.cpp lodepng/lodepng.cpp $(LIB)
+
+fourier_compression_omp.exe:	fourier_compression_omp.cpp lodepng/lodepng.cpp
+	$(CXX) -Xclang -fopenmp -lomp $(CXXFLAGS) -o fourier_compression_omp.exe fourier_compression_omp.cpp lodepng/lodepng.cpp $(LIB)  -lpthread
+
+fourier_compression_mpi1.exe:	fourier_compression_mpi1.cpp lodepng/lodepng.cpp
+	mpic++ -Xclang -fopenmp -lomp $(CXXFLAGS) -o fourier_compression_mpi1.exe fourier_compression_mpi1.cpp lodepng/lodepng.cpp $(LIB)  -lpthread
 
 help: 
 	@echo "Available targets : "
